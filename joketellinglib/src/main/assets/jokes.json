@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "author": "https://www.hongkiat.com/blog/programming-jokes/",
+    "joke": "Programmer(noun.): A machine that turns coffe into code."
+  },
+  {
+    "id": 2,
+    "author": "https://www.hongkiat.com/blog/programming-jokes/",
+    "joke": "Programmer(noun.): A person who fixed a problem that you don't know you have, in a way you don't understand."
+  },
+  {
+    "id": 3,
+    "author": "https://www.hongkiat.com/blog/programming-jokes/",
+    "joke": "Algorithm(noun.): Word used by programmers when... they do not want to explain what they did."
+  },
+  {
+    "id": 4,
+    "author": "https://www.hongkiat.com/blog/programming-jokes/",
+    "joke": "Hardware(noun.): The part of a computer thet you can kick."
+  },
+  {
+    "id": 5,
+    "author": "https://www.hongkiat.com/blog/programming-jokes/",
+    "joke": "Q: What's the object-oriented way to become wealthy?\nA: Inheritance."
+  },
+  {
+    "id": 6,
+    "author": "https://www.hongkiat.com/blog/programming-jokes/",
+    "joke": "Q: What do you call a programmer from Finland?\nA: Nerdic"
+  },
+  {
+    "id": 7,
+    "author": "https://www.hongkiat.com/blog/programming-jokes/",
+    "joke": "Q: Why did the programmer quit his job?\nA: Because he didn't get arrays(a raise)."
+  },
+  {
+    "id": 8,
+    "author": "https://www.hongkiat.com/blog/programming-jokes/",
+    "joke": "Q: '0' is false and '1' is true, right?\nA: 1"
+  },
+  {
+    "id": 9,
+    "author": "https://www.hongkiat.com/blog/programming-jokes/",
+    "joke": "Q: What do computers and air conditioners have in common?\nA: They both become useless when you open windows."
+  },
+  {
+    "id": 10,
+    "author": "https://www.hongkiat.com/blog/programming-jokes/",
+    "joke": "Q: Why do Java programmers have to wear glasses?\nA: Because they don't C#."
+  }
+]
