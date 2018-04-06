@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">jokeDisplayer</string>
+
+    <!--JOKE_DISPLAYER TOOLS-->
+    <string name="joke_text">This is a joke</string>
+    <string name="joke_author">I am the author</string>
+</resources>

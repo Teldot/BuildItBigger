@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="joke_txt_margin">8dp</dimen>
+    <dimen name="joke_aut_margin">8dp</dimen>
+    <dimen name="joke_txt_text_size">28sp</dimen>
+    <dimen name="joke_aut_text_size">8dp</dimen>
+
+</resources>
