@@ -6,24 +6,27 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.android.jokedisplayer.JokeDisplayerActivity;
-import com.example.android.joketellinglib.data.JokeProvider;
-import com.example.android.joketellinglib.data.model.Joke;
+import com.example.jokeproviderlib.JokeProvider;
+import com.example.jokeproviderlib.data.model.Joke;
 
 
-public class MainActivity extends AppCompatActivity {
-    JokeProvider jokeProvider;
+public class MainActivity extends AppCompatActivity implements AsyncTaskCompleteListener {
+    private JokeProvider jokeProvider;
     private static final String K_JOKE_INFO = "K_JOKE_INFO";
-
+    private ProgressBar spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        jokeProvider = new JokeProvider(this);
+        spinner = findViewById(R.id.progressBar1);
+        jokeProvider = new JokeProvider();
+        spinner.setVisibility(View.GONE);
     }
 
 
@@ -50,12 +53,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
-        Joke joke = jokeProvider.tellMeAJoke();
-        Toast.makeText(this, joke.Joke, Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(this, JokeDisplayerActivity.class);
-        intent.putExtra(K_JOKE_INFO, joke);
-        startActivity(intent);
+        spinner.setVisibility(View.VISIBLE);
+        new EndpointsAsyncTask(this).execute();
     }
 
 
+    @Override
+    public void onTaskComplete(com.udacity.gradle.builditbigger.backend.myApi.model.Joke result) {
+        if (result == null)
+            Toast.makeText(this, getString(R.string.endpoint_error), Toast.LENGTH_LONG).show();
+        else {
+            Toast.makeText(this, result.getJoke(), Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(this, JokeDisplayerActivity.class);
+            Joke serializableJoke = new Joke(0, result.getJoke(), result.getAuthor());
+            intent.putExtra(K_JOKE_INFO, serializableJoke);
+            startActivity(intent);
+        }
+        spinner.setVisibility(View.GONE);
+    }
 }

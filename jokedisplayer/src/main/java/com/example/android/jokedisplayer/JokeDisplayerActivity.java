@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
-import com.example.android.joketellinglib.data.model.Joke;
+import com.example.jokeproviderlib.data.model.Joke;
 
 public class JokeDisplayerActivity extends AppCompatActivity {
 
@@ -19,15 +19,21 @@ public class JokeDisplayerActivity extends AppCompatActivity {
 
         if (savedInstanceState != null)
             joke = (Joke) savedInstanceState.getSerializable(K_JOKE_INFO);
-        else{
+        else {
             Bundle intentExtras = getIntent().getExtras();
             joke = (Joke) intentExtras.getSerializable(K_JOKE_INFO);
         }
         loadData();
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putSerializable(K_JOKE_INFO, joke);
+    }
+
     private void loadData() {
-        ((TextView)findViewById(R.id.tv_author)).setText(joke.Author);
-        ((TextView)findViewById(R.id.tv_joke)).setText(joke.Joke);
+        ((TextView) findViewById(R.id.tv_author)).setText(joke.Author);
+        ((TextView) findViewById(R.id.tv_joke)).setText(joke.Joke);
     }
 }

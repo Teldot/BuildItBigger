@@ -61,6 +61,10 @@
                              <button class="btn btn-default btn-primary btn-group btn-lg"
                                      type="submit" id="helloButton">Say "Hello" &raquo;</button>
                           </span>
+                        <span class="input-group-btn">
+                             <button class="btn btn-default btn-primary btn-group btn-lg"
+                                     type="submit" id="getJokeButton">Get a Joke!! &raquo;</button>
+                          </span>
                     </div>
                 </form>
                 <br/>
@@ -88,16 +92,16 @@
 <script type="text/javascript">
     // A function that attaches a "Say Hello" button click handler
     function enableClick() {
-      document.getElementById('helloButton').onclick = function() {
-        var name = document.getElementById('nameInput').value;
-        gapi.client.myApi.sayHi({'name': name}).execute(
+      document.getElementById('getJokeButton').onclick = function() {
+        //var name = document.getElementById('nameInput').value;
+        gapi.client.myApi.getJoke().execute(
           function(response) {
             var outputAlertDiv = document.getElementById('outputAlert');
             outputAlertDiv.style.visibility = 'visible';
 
             if (!response.error) {
               outputAlertDiv.className = 'alert alert-success';
-              outputAlertDiv.innerHTML = '<h2>' + response.result.data + '</h2>';
+              outputAlertDiv.innerHTML = '<h2>' + response.myJoke.Joke + '</h2>';
             }
             else if (response.error) {
               outputAlertDiv.className = 'alert alert-danger';
